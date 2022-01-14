@@ -38,7 +38,7 @@ export default class Table extends Component {
   
 
   renderTableHeader = () => {
-    return Object.keys(this.state.users[0]).slice(0,-1).map((attr) => (
+    return ["Id","title","status","action"].map((attr) => (
       <th key={attr}>{attr.toUpperCase()}</th>
     ));
   };
@@ -51,6 +51,8 @@ export default class Table extends Component {
           <td>{user.id}</td>
           <td>{user.title}</td>
           <td>{user.status?"true":"false"}</td>
+          <td><input type="submit" class="button" /></td>
+          
 
         </tr>
       );
@@ -68,11 +70,11 @@ export default class Table extends Component {
     }
 
     return users.length > 0 ? (
-      <table className="table table-borderless table-dark">
+      <table className="table table-success">
         <thead>
           <tr>{this.renderTableHeader()}</tr>
         </thead>
-        <tbody>{this.renderTableRows()}</tbody>
+        <tbody>{this.renderTableRows()} </tbody>
       </table>
     ) : (
       <div>No users.</div>

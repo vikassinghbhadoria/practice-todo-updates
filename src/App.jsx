@@ -5,7 +5,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <h2>hi</h2>
+        {/* <h2>hi</h2> */}
         <Table />;
       </>
     );
