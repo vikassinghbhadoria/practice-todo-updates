@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React,{ Component } from "react";
+import { useState } from "react";
 import "./table.css";
-
 
 export default class Table extends Component {
   constructor(props) {
@@ -25,8 +25,7 @@ export default class Table extends Component {
           id: elem.id,
           title: elem.title,
           status: elem.completed,
-          userId:elem.userId,
-          
+          userId: elem.userId,
         };
       });
 
@@ -35,25 +34,26 @@ export default class Table extends Component {
       this.setState({ isError: true, isLoading: false });
     }
   }
-  
 
   renderTableHeader = () => {
-    return ["Id","title","status","action"].map((attr) => (
+    return ["Id", "title", "status", "action"].map((attr) => (
       <th key={attr}>{attr.toUpperCase()}</th>
     ));
   };
+
+ 
+
   renderTableRows = () => {
     return this.state.users.map((user) => {
-      console.log(user);
+      // console.log(user);
       return (
         <tr key={user.id}>
-
           <td>{user.id}</td>
           <td>{user.title}</td>
-          <td>{user.status?"true":"false"}</td>
-          <td><input type="submit" class="button" /></td>
-          
-
+          <td>{user.status ? "true" : "false"}</td>
+          <td>
+            <input type="submit" className="button" />
+          </td>
         </tr>
       );
     });
@@ -74,7 +74,7 @@ export default class Table extends Component {
         <thead>
           <tr>{this.renderTableHeader()}</tr>
         </thead>
-        <tbody>{this.renderTableRows()} </tbody>
+        <tbody>{this.renderTableRows()}</tbody>
       </table>
     ) : (
       <div>No users.</div>
