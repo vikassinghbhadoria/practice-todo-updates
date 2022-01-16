@@ -1,16 +1,21 @@
-import React, { Component } from "react";
-import Table from "./Table";
-// import UserDetail from "./UserDetail";
-// import "./App.css";
-export default class App extends Component {
-  render() {
-    return (
-      <>
-        {/* <h2>hi</h2> */}
-        <Table />
-        {/* <UserDetail /> */}
-      </>
-    );
-  }
+import * as React from 'react';
+import './App.css';
+import Table from './components/Table';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import User from './user';
+function App() {
+  const [user, setUser] = React.useState(null);
+  return (
+    <>
+      {/* <BrowserRouter>
+        <Routes>
+          <Route exact path='/user' element={<User user={user} />} />
+          <Route exact path='/' element={<Table setUser={setUser} />} />
+        </Routes>
+      </BrowserRouter> */}
+      <Table user={user} setUser={setUser} />
+    </>
+  );
 }
- 
+
+export default App;
